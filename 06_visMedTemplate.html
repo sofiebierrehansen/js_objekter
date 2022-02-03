@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06_visMedTemplate</title>
+    <style>
+      article {
+        border: 1px solid black;
+        padding: 0.5rem;
+        margin: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container"></section>
+    <template>
+      <article class="dyr">
+        <h3></h3>
+        <img src="" alt="" />
+        <p class="type"></p>
+        <p class="levested"></p>
+      </article>
+    </template>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let dyr = [
+        {
+          Navn: "Gris",
+          Type: "Pattedyr",
+          Levested: "Grisefarm",
+          Billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        },
+        {
+          Navn: "Frø",
+          Type: "Amfibie",
+          Levested: "Vandhullet",
+          Billede: "http://mabe-kea.dk/E19/pics/frog.png",
+        },
+        {
+          Navn: "Ræv",
+          Type: "Pattedyr",
+          Levested: "Skoven",
+          Billede: "http://mabe-kea.dk/E19/pics/fox.png",
+        },
+        {
+          Navn: "Sild",
+          Type: "Fisk",
+          Levested: "Havet",
+          Billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
+        },
+        {
+          Navn: "Krokodille",
+          Type: "Krybdyr",
+          Levested: "Floden",
+          Billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
+        },
+      ];
+      console.log(dyr);
+
+      function start() {
+        const container = document.querySelector(".container");
+        const dyrTemplate = document.querySelector("template");
+        // Løb listen af dyr igennem og indsæt data i template
+        dyr.forEach((dyrEntal) => {
+          // Placer dyr i html
+          let klon = dyrTemplate.cloneNode(true).content;
+          klon.querySelector("h3").textContent = dyrEntal.Navn;
+          klon.querySelector("img").src = dyrEntal.Billede;
+          klon.querySelector(".type").textContent = "Type: " + dyrEntal.Type;
+          klon.querySelector(".levested").textContent =
+            "Levested: " + dyrEntal.Levested;
+          container.appendChild(klon);
+        });
+      }
+    </script>
+  </body>
+</html>
