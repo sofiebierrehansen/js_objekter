@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05_visAlleDyr</title>
+    <style></style>
+  </head>
+  <body>
+    <section id="liste"></section>
+    <script>
+      document.addEventListener("DOMContentLoaded", start);
+      let dyr = [
+        {
+          Navn: "Gris",
+          Type: "Pattedyr",
+          Levested: "Grisefarm",
+          Billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        },
+        {
+          Navn: "Frø",
+          Type: "Amfibie",
+          Levested: "Vandhullet",
+          Billede: "http://mabe-kea.dk/E19/pics/frog.png",
+        },
+        {
+          Navn: "Ræv",
+          Type: "pattedyr",
+          Levested: "skoven",
+          Billede: "http://mabe-kea.dk/E19/pics/fox.png",
+        },
+        {
+          Navn: "Sild",
+          Type: "fisk",
+          Levested: "havet",
+          Billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
+        },
+        {
+          Navn: "Krokodille",
+          Type: "krybdyr",
+          Levested: "floden",
+          Billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
+        },
+      ];
+      console.log(dyr);
+
+      function start() {
+        const listevisning = document.querySelector("#liste");
+        // Løb listen af dyr igennem og indsæt i #liste
+        dyr.forEach((dyrEntal) => {
+          // placer dyr i html
+          listevisning.innerHTML += `<p>${dyrEntal.Navn} er et ${dyrEntal.Type} fra ${dyrEntal.Levested} </p>`;
+        });
+      }
+    </script>
+  </body>
+</html>
